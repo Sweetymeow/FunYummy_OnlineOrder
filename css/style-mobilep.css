@@ -95,3 +95,25 @@
 	display: flex;
 	}
 	
+
+a.bgnday{
+	width: 100%;
+}
+
+
+li.weekday{
+	height: 80px;
+}
+li.weekdayover{
+	height: 80px;
+}
+
+ul.special{
+	display:flex;
+	flex-direction: row;
+	flex-wrap:wrap;
+	}
+div.daybtn{
+	display:flex;
+	flex-direction: row;
+	}

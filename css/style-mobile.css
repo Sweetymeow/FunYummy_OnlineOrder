@@ -100,7 +100,39 @@
 	margin-left: 6em;
 
 	box-sizing:border-box;
- -moz-box-sizing:border-box; /* Firefox */
- -webkit-box-sizing:border-box; /* Safari */
+ 	-moz-box-sizing:border-box; /* Firefox */
+ 	-webkit-box-sizing:border-box; /* Safari */
+	}
+	
+a.bgnday{
+	width: 100%;
 	}
 
+
+div.daybtn{
+	display:flex;
+	flex-direction: row;
+}
+	
+ul.special{
+	display:flex;
+	flex-direction: row;
+	}
+
+li.weekday{
+	width: 100%;
+	margin-right: 0;
+}
+li.weekdayover{
+	width: 100%;
+	margin-right: 0;
+}
+
+li.weekday img{
+	width: 100px;
+	height: 80px;
+	}
+li.weekdayover img{
+	width: 100px;
+	height: 80px;
+	}

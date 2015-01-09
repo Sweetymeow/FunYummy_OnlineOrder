@@ -475,6 +475,7 @@
 		text-decoration: none;
 		font-weight: 600;
 		letter-spacing: -0.025em;
+		margin:0 1em 1em 0;
 	}
 
 		input[type="submit"]:hover,
@@ -489,8 +490,8 @@
 		input[type="reset"]:active,
 		input[type="button"]:active,
 		.button:active {
-			background-color: #ce4e44;
-			color: white;
+	background-color: #ce4e44;
+	color: white;
 		}
 
 		input[type="submit"].alt,
@@ -535,6 +536,7 @@
 		.button.small {
 			font-size: 0.8em;
 		}
+		
 
 /* Building select button */
 .bldgButtonTitle{
@@ -579,7 +581,13 @@
 		box-sizing:border-box;
 		-moz-box-sizing:border-box; /* Firefox */
 		-webkit-box-sizing:border-box; /* Safari */
+		
 	}
+	.box.highlight .special{
+		margin: 0 0 4em 0;
+		min-height: 15em;
+		text-align: center;
+	}			
 
 	.box.post {
 		position: relative;
@@ -796,7 +804,7 @@
 /* Wrapper */
 
 	.wrapper {
-		padding: 3em 0 2em 0;
+		padding: 1em 0 1em 0;
 	}
 
 		.wrapper.style1 {
@@ -927,6 +935,10 @@
 	#orderImg{
 		max-width: 30%;
 	}
+	a.button{
+	max-width : 50%;
+	padding: 0 1em 0 1em;
+	}
 }
 
 th{
@@ -937,3 +949,84 @@ th{
 	margin:auto;
 	width: 50%;
 	}
+	
+div.daybtn{
+	display: flex;
+	flex-direction:row;
+	flex-wrap: wrap;
+}
+
+@media (max-width: 400px){
+	header.daybtn{
+		display:block;
+	}
+	
+}
+	
+ul.special{
+	display : flex;
+	flex-wrap: wrap;
+}
+
+li.weekday{
+	width: 49%;
+	margin: 0 0.5em 0.5em 0em;
+	box-sizing: border-box;
+	border-radius: 2% 2%;
+	box-shadow: gray 0px 0px 5px;
+	background-color: #fffff;
+	color: #CD4F51;
+	line-height: 2em;
+	text-align: center;
+	font-weight: 600;
+	display: flex;
+}
+
+li.weekdayover{
+	width: 49%;
+	margin: 0 0.5em 0.5em 0em;
+	box-sizing: border-box;
+	border-radius: 2% 2%;
+	box-shadow: gray 0px 0px 5px;
+	background-color: #eeeeee;
+	color: #A26061;
+	line-height: 2em;
+	text-align: center;
+	font-weight: 600;
+	display: flex;
+}
+
+li.weekday > p{
+	margin:0 0.5em 0 0.5em;
+	text-align:center;
+	}
+li.weekdayover > p{
+	margin:0 0.5em 0 0.5em;
+	text-align:center;
+	}
+
+a.icon{
+	width: 3em;
+	height: 3em;
+	}
+
+li.weekday > img{
+	border: none; 
+	overflow: hidden; 
+	float: left;
+	border-bottom: dotted 1px;
+	}
+	li.weekday > img:hover{
+		border: 3px solid;
+		border-color:#FAE8E8;
+		opacity: 0.8;
+		background-color:#CD4F51;
+	//	margin: -3px;
+	}
+	
+	li.weekday > img:active{
+		border: 3px solid;
+		border-color:#CD4F51;
+		opacity: 0.5;
+		background-color:#CD4F51;
+		}

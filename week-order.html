@@ -24,46 +24,73 @@
 			<link rel="stylesheet" href="css/style-wide.css" />
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-	</head>
-	<body>
+</head>
 
-		<!-- Header -->
-			<div id="header">
-						
-				<!-- Logo -->
-					<h1><a href="index.html" id="logo">FunYummy <em>Online Ordre PSU</em></a></h1>
-				
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li class="current"><a href="index.html">Home</a></li>
-                            <li><a href="week-order.html">Week Order</a></li>
-                            <li><a href="about-us.html">About Us</a></li>
-						</ul>
-					</nav>
-			</div>
+<body>
+    <!-- Header -->
+    <div id="header">                    
+    <!-- Logo -->
+    <h1><a href="index.html" id="logo">FunYummy <em>Online Ordre PSU</em></a></h1>
+    <!-- Nav -->
+    <nav id="nav">
+        <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li><a href="week-order.html">Week Order</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+        </ul>
+    </nav>
+</div>
 			
-		<!-- Main -->
-			<section class="wrapper style1">
-				<div class="container">
-					<div id="content">
-
-						<!-- Content -->
-					
-							<article>
-								<header>
-									<h2>Rush Order</h2>
-									<div id="today">Order for tomorrow.</div>
-                                    <script> showDate(); </script>
-								</header>
-								
-								<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
-                                <h3>Today Meal Introduction</h3>
-								<p> Our artisanal recipes are updated weekly, and feature healthy meat and seafood dishes, along with flavorful vegetarian options. Your Plated box will arrive with perfectly portioned ingredients, hand-packed for freshness. Follow the simple recipe card to get to the best part: eating!</p>
-					 </article>
-                     </div>
-				</div>
-			</section>
+<!-- Meal Selector -->
+<section class="wrapper style1">
+    <div class="container">
+        <div id="content">
+            <!-- Weekly Schedule -->
+            <article>
+                <header>
+                    <h2>Weekly Schedule</h2>
+                    <div id="today">Order for tomorrow.</div>           			<script> showDate(); </script>
+        		</header>
+<!--<span class="image featured"><img src="images/banner.jpg" alt="" /></span>-->
+                <h4>We can accept a week schedule since next avaliable delievery day.</h4>
+                <h4><em>Press the button</em> once <em>to add one meal to the day on your order schedule:</em></h4>
+			 </article>
+           </div>
+		</div>
+        <!-- Select Begin Day -->
+        <div class="container">
+			<div class="daybtn">
+				<a href="#" class="button bgnday" id="tomorrow">Next Monday</a>
+                <a href="#" class="button bgnday" id="nextmon">Monday after next week</a>
+			</div>
+		</div>
+        <!-- Weekly Meal Button -->
+        <div class="container">
+			<ul class="special">
+            <li class="image weekdayover" >
+               	<img class="imagebtn" id="WeekMon" src="images/pic01.jpg" alt=""/></img>
+                <p>Monday</p></li>
+			<li class="image weekday">
+               	<img class="imagebtn" id="WeekTue" src="images/pic01.jpg" alt=""/></img>
+                <p>Tuesday</p></li>
+			<li class="image weekday">
+               	<img class="imagebtn" id="WeekWed" src="images/pic01.jpg" alt=""/>
+                <p>Wedesday</p></li>
+            <li class="image weekday">
+               	<img class="imagebtn" id="WeekThr" src="images/pic01.jpg" alt=""/>
+                <p>Thursday</p></li>
+			<li class="image weekday">
+               	<img class="imagebtn" id="WeekFri" src="images/pic01.jpg" alt=""/>
+                <p>Friday</p></li>
+            </ul>
+			<header>
+				<h2>A turpis adipiscing ut curae ac aliquam</h2>
+				<p>Sed nibh nisi nunc accumsan mi natoque porta pellentesque</p>
+            </header>
+			<p class="result"> Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus. Praesent semper mod quis eget mi. Etiam eu<br/></p>
+     </div>
+</section>
+        
             
         <!-- Order Summary -->
 		<section class="wrapper style2">
@@ -136,7 +163,7 @@
                    </div>
                   
                 </section>
-                <script> nextdlvdate(); </script>
+                <script> nextdlvday(); </script>
 			</div>
 		</section>
             
@@ -199,16 +226,13 @@
                             </ul>
 						</section>
 						<section class="6u 12u(2)" style="display: flex">
-							<div class="row 50%" id="logBtn">
+							
 							<div id="order_button">
 								<a href="log-in.html" class="button">Log in</a>
 								</div>
-                            </div>
-							<div class="row 50%" id="logBtn">
-                            <div  id="order_button">
+                                <div  id="order_button">
 								<a href="sign-up.html" class="button">Sign up</a>
-								</div>
-							</div>
+                            </div>
 						</section>
 					</div>
 				</div>
