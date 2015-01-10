@@ -939,6 +939,9 @@
 	max-width : 50%;
 	padding: 0 1em 0 1em;
 	}
+	div.daydetail{
+		max-width: 70%;
+	}
 }
 
 th{
@@ -994,6 +997,7 @@ li.weekdayover{
 	text-align: center;
 	font-weight: 600;
 	display: flex;
+	flex-wrap: wrap;
 }
 
 li.weekday > p{
@@ -1015,6 +1019,8 @@ li.weekday > img{
 	overflow: hidden; 
 	float: left;
 	border-bottom: dotted 1px;
+	width: 160px;
+	height: 140px;
 	}
 	li.weekday > img:hover{
 		border: 3px solid;
@@ -1030,3 +1036,23 @@ li.weekday > img{
 		opacity: 0.5;
 		background-color:#CD4F51;
 		}
+		
+li.weekdayover > img{
+	border: none; 
+	overflow: hidden; 
+	float: left;
+	border-bottom: dotted 1px;
+	}
+div.daydetail > p{
+	margin : 0;
+	}
+	div.daydetail > p#ordermenu{
+		font-weight:100;
+		line-height: 120%;
+		}
+span#ordermenu{
+	font-weight:100;
+	}
+div.daydetail > span{
+	margin-right:0.5em;
+	}

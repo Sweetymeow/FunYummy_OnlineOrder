@@ -60,34 +60,53 @@
         <!-- Select Begin Day -->
         <div class="container">
 			<div class="daybtn">
-				<a href="#" class="button bgnday" id="tomorrow">Next Monday</a>
+				<a href="#" class="button bgnday" id="nextdvlday">Next Monday</a>
                 <a href="#" class="button bgnday" id="nextmon">Monday after next week</a>
 			</div>
 		</div>
         <!-- Weekly Meal Button -->
         <div class="container">
 			<ul class="special">
-            <li class="image weekdayover" >
+            <li class="image weekday" >
                	<img class="imagebtn" id="WeekMon" src="images/pic01.jpg" alt=""/></img>
-                <p>Monday</p></li>
+                <div class="daydetail" id="WeekMon">
+                  <p>Monday, today is 8th, Jan 2015 </p>
+ 	              <p id="ordermenu"><em>Menu: </em> Burgers & Sandwiches / Calories	530 / Total Fat	27g	42% / Carbohydrates	47g	16% </p>
+                </div>
+              </li>
 			<li class="image weekday">
                	<img class="imagebtn" id="WeekTue" src="images/pic01.jpg" alt=""/></img>
-                <p>Tuesday</p></li>
+                <div class="daydetail" id="WeekTue">
+                	<p>Tuesday, today is 9th, Jan 2015</p>
+                	<p id="ordermenu"><em>Menu: </em> Burgers & Sandwiches / Calories	530 / Total Fat	27g	42% / Carbohydrates	47g	16% </p>
+                </div>
+            </li>
 			<li class="image weekday">
-               	<img class="imagebtn" id="WeekWed" src="images/pic01.jpg" alt=""/>
-                <p>Wedesday</p></li>
+               	<img class="imagebtn" id="WeekWed" src="images/pic01.jpg" alt=""/></img>
+                <div class="daydetail" id="WeekWed">
+                <p>Wedesday</p>
+                <p id="ordermenu">Menu:</p>
+                </div>
+            </li>
             <li class="image weekday">
-               	<img class="imagebtn" id="WeekThr" src="images/pic01.jpg" alt=""/>
-                <p>Thursday</p></li>
+               	<img class="imagebtn" id="WeekThr" src="images/pic01.jpg" alt=""/></img>
+                <div class="daydetail" id="WeekThu">
+                <p>Thursday</p>
+                 <p id="ordermenu">Menu:</p>
+                </div>
+            </li>
 			<li class="image weekday">
-               	<img class="imagebtn" id="WeekFri" src="images/pic01.jpg" alt=""/>
-                <p>Friday</p></li>
+               	<img class="imagebtn" id="WeekFri" src="images/pic01.jpg" alt=""/></img>
+                <div class="daydetail" id="WeekFri">
+                <p>Friday</p>
+                <p id="ordermenu">Menu:</p>
+                </div>
+            </li>
             </ul>
 			<header>
 				<h2>A turpis adipiscing ut curae ac aliquam</h2>
-				<p>Sed nibh nisi nunc accumsan mi natoque porta pellentesque</p>
+                <p class="result"> Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus. Praesent semper mod quis eget mi. Etiam eu<br/></p>
             </header>
-			<p class="result"> Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus. Praesent semper mod quis eget mi. Etiam eu<br/></p>
      </div>
 </section>
         
@@ -163,7 +182,6 @@
                    </div>
                   
                 </section>
-                <script> nextdlvday(); </script>
 			</div>
 		</section>
             

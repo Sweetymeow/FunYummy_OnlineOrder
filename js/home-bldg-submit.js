@@ -4,55 +4,65 @@ var orderArray = new Array(); // Home Page - temp keep order info
 // Week Order Page
 var d_names = new Array("Sunday", "Monday", "Tuesday",
 "Wednesday", "Thursday", "Friday", "Saturday");
-var d_menus = new Array("Mon Meal", "Tues Meal",
-"Wed Meal", "Thur Meal", "Fri Meal");
+
+var menu = new Array();
+var menuStr = "";
 
 var d = new Date();
-var orderdays = new Array(5); // to save next 5 deliverable day
-var inputDate = new Date();
-var next_dvl_date;
+var weekdates = new Array(5);
 
-var jsonWeekOrder = new Object(); // use to save JSON data
+var orderjson = new Object(); // use to save JSON data
 
 
-// 
+// Week Order Page
 $(function(){
-	/*$("form").submit(function(e){
-		var $year = $('input[name="year"]').val();
-		var $month = $('input[name="month"]').val();
-		var $date = $('input[name="date"]').val();
-		var input_day = new Date($year, $month-1, $date);
-		inputDate.setDate($date+1);
+	var today = new Date();
+	var beginDate = nextWorkDate(today);
+	var menutext = $('<p id="ordermenu"><em>Menu: </em> this part is menu. </p>');
+	var menu = ["Burgers & Sandwiches / Calories 530 / Total Fat	27g 42% / Carbohydrates 47g","Menu : test1","Menu : test2","Menu : test3","Menu : test4"]; // Menu Array
+	
+	$('.daydetail p:nth-child(1)').each(function(){
+		var nextDvlDate = nextWorkDate(beginDate);
+		console.log("next date is" + nextDvlDate.getDate());
+		var htmlDate = printDate(beginDate);
+		$(this).html(htmlDate);
+		beginDate.setDate(nextDvlDate.getDate()); 
+	});
+	$('.daydetail p:nth-child(2)').each(function(i){
+		$(this).html(menu[i]);
+		i++;
+	});
+
+	$('a#nextdvlday').click(function(){
+		beginDate = nextMonDate(today);
 		
-		inputDate = input_day;
-		var nextdvlday = nextDeliveryDay(inputDate);
-		$('p.inputDate').text(inputDate);
-		$('p.inputDate').append(', inputDate is : '+inputDate.getDate());
-		$('p#next-dvl-day').text(d_names[nextDeliveryDay(d)]);
-		$('p#next-dvl-inputDate').text(d_names[nextdvlday]);
-		//nextDlvWeek();
-  });
-  */
+		
+		
+	});
+	$('a#nextmon').click(function(){
+	});
   
 })
 
 
 
 
-// Weekly Schedule page
+// Weekly Schedule page, start day selected button
 $(function(){
-	var next_dvl_day = nextDeliveryDay(d);
+	var next_dvl_date = nextDeliveryDate(d);
 	
-	// start day selected button
+	// start day selected button, next Monday
 	$('a.bgnday:nth-child(1)').on('click', function(){
-		console.log("Next Delivery Day is: ");
 		
+		console.log("Next Delivery Day is: " + next_dvl_date);
 	});
+	// start day selected button, Monday after next week
 	$('a.bgnday:nth-child(2)').on('click', function(){
 		console.log("find next Monday");	
 	});
 })	
 
+// show today date on tag with id = today
 function showDate(){
 	var curr_day = d.getDay();  // day of week
 	var curr_date = d.getDate(); // date of month
@@ -68,88 +78,81 @@ function showDate(){
     else{sup = "th";}
 
 	document.getElementById("today").innerHTML = "<p> Today is : <em>" + d_names[curr_day] + "</em> , " + curr_date + sup + " "+ m_names[curr_month] + " " + curr_year + "</p>";
-	curr_month_name = m_names[curr_month];
-	return curr_month_name;
-	
 }
 
-function nextDeliveryDay(givenDate){ 
-// Calculate the next deliverable day for Week Or Rush Order 
-	var next_dvl_day; // day of week
-
-	if(curr_day == 0){ // today is sunday
-		next_dvl_day = givenDate.getDay() + 1;
-	}else if (curr_day == 6){
-		next_dvl_day = givenDate.getDay() - 5;
-	}else{
-		next_dvl_day = givenDate.getDay();
-	}
-	document.getElementById('next-dvl-day').textContent = d_names[next_dvl_day];
+// return string of day, date, month and year
+function printDate(testDate){
+	var givenDate = testDate;
 	
-	return  next_dvl_day; // day of week, 0-6
-}
-
-// fill the orderDate Array with 5 day;
-function nextDlvWeek(inputDate){
+	var prt_day = givenDate.getDay();  // day of week
+	var prt_date = givenDate.getDate(); // date of month
+	var prt_month = givenDate.getMonth();
+	var prt_year = givenDate.getFullYear();
+	
 	var m_names = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 	
-	var beginDate = inputDate;
+    var sup = "";
+    if (prt_date == 1 || prt_date == 21 || prt_date ==31){sup = "st";}
+    else if (prt_date == 2 || prt_date == 22){sup = "nd";}
+    else if (prt_date == 3 || prt_date == 23){sup = "rd";}
+    else{sup = "th";}
+
+	var prtdate =  "<em>" + d_names[prt_day]  + "</em> . " + prt_date  + sup + ". " + m_names[prt_month] + ". " + prt_year;
 	
-	// if the beginDate is Monday, every day in this week is work day
-	if(IsMonday(beginDate)){ 
-		console.log(inputDate + " : is Monday");	
-		for(var i = 0; i< orderdays.length ; i++){
-			 var orderDate = new myDate(
-				'd_names[beginDate.getDay()]',
-				beginDate.getDate(), 
-				'm_names[beginDate.getMonth()]', 
-				beginDate.getFullYear());
-	
-			 orderdays[i] = orderDate;
-			 
-			 // Update the beginDate
-			 var nextdate = beginDate.getDate()+1;
-			 beginDate.setDate(nextdate); 
-			 
-		}// cycle arraylength times to fill orderdays array;
-	}else if(IsWeekend(beginDate) == 1 || IsWeekend(beginDate) == 2){
-		 // if the beginDate is Sun or Sat
-		var nextdate = beginDate.getDate() + IsWeekend(beginDate);
-		beginDate.setDate(nextdate);
-		console.log("Update weekend to " + beginDate + " : is Monday");
+	return prtdate;
+}
+
+function nextDeliveryDate(givenDate){ 
+// Calculate the next deliverable day for Week Or Rush Order
+
+	if(givenDate.getHours() < 21){ 
+		var nextdate = givenDate.getDate()+1;
+		givenDate.setDate(nextdate);
 		
-		for(var i = 0; i< orderdays.length ; i++){
-			 var orderDate = new myDate(
-				'd_names[beginDate.getDay()]',
-				beginDate.getDate(), 
-				'm_names[beginDate.getMonth()]', 
-				beginDate.getFullYear());
-	
-			 orderdays[i] = orderDate;
-			
-			// Update the beginDate
-			var nextdate = beginDate.getDate()+1;
-			beginDate.setDate(nextdate); 
-		}			
-	}else{ // begin day is a week day but isn't Monday
-		for(var i = 0; i< orderdays.length ; i++){
-			var orderDate = new myDate(
-				'd_names[beginDate.getDay()]',
-				beginDate.getDate(), 
-				'm_names[beginDate.getMonth()]', 
-				beginDate.getFullYear());
-	
-			 orderdays[i] = orderDate;
-			 
-			var nextdate = beginDate.getDate()+ 1;
-			beginDate.setDate(nextdate);
-			console.log("Update week day to " + beginDate);
-			if(IsWeekend(beginDate) == 2){
-				var nextdate = beginDate.getDate() + IsWeekend(beginDate);	
-				beginDate.setDate(nextdate);
-			}
+		if(IsWeekend(givenDate) == 1 || IsWeekend(givenDate) == 2){
+			// if the beginDate is Sun or Sat
+			var nextdate = givenDate.getDate() + IsWeekend(givenDate);
+			givenDate.setDate(nextdate);
+			console.log("Next deliverable date is " + givenDate.getDate() + ", it is Monday");	
 		}
-	} // begin from Thuesday
+	}else if(givenDate.getHours() >= 21){
+		var nextdate = givenDate.getDate()+2;
+		givenDate.setDate(nextdate.getDate());
+		
+		if(IsWeekend(givenDate) == 1 || IsWeekend(givenDate) == 2){
+			// if the beginDate is Sun or Sat
+			var nextdate = givenDate.getDate() + IsWeekend(givenDate);
+			givenDate.setDate(nextdate);
+			console.log("Next deliverable date is " + givenDate.getDate() + ", it is Monday");	
+		}
+	}
+	return  givenDate; // day of week, string
+}
+
+function nextWorkDate(testDate){
+	var givenDate = testDate;
+	
+	if(IsWeekend(givenDate) == 1 || IsWeekend(givenDate) == 2){
+		// if the beginDate is Sun or Sat
+		var nextdate = givenDate.getDate() + IsWeekend(givenDate);
+		givenDate.setDate(nextdate);
+		console.log("Next work date is " + givenDate.getDate() + ", it is Monday");	
+	}else if(givenDate.getDay() === 5){ // This is Friday
+		var nextdate = givenDate.getDate() + 3;
+		givenDate.setDate(nextdate);
+		console.log("Next work date is " + givenDate.getDate() + ", it is Monday");
+	}else{
+		var nextdate = givenDate.getDate()+1;
+		givenDate.setDate(nextdate);
+		console.log("get next work day");
+	}
+	
+	return  givenDate; // day of week, string
+}
+
+function dayofweek(givenDate){ 
+// Calculate the next deliverable day for Week Or Rush Order 
+	return  d_names[givenDate.getDay()]; // day of week, string
 }
 
 
@@ -158,9 +161,7 @@ function myDate(weekday, date, month, year){
 	this.date = date;
 	this.month = month;
 	this.year = year;
-	}
-
-
+}
 
 function IsMonday(givenDate) {
     return givenDate.getDay() == 1;
@@ -189,13 +190,7 @@ function IsLastdayInMonth(givenDate) {
 	
 	if(date >= 28){
 		switch(month){
-			case 0: 
-			case 2: 
-			case 4: 
-			case 6: 
-			case 7: 
-			case 9: 
-			case 11:
+			case 0: case 2: 	case 4: case 6: case 7: case 9:  case 11:
 				if(givenDate.getDate() === 31){
 					alert("It is last day!!!!!");
 					return 1;}
@@ -320,3 +315,12 @@ function orderList(bldg, number){
 	this.number = number;
 	$.removeCookie();
 }
+
+function orderLists(location,weekday,num, date, month, year){
+	this.location = location;
+	this.weekday = weekday;
+	this.num = num;
+	this.date = date;
+	this.month = month;
+	this.year = year;
+	}
