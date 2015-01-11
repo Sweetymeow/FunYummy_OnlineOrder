@@ -908,29 +908,29 @@
      display: flex;
      -webkit-flex-flow: row wrap;
      flex-flow: row wrap;
-	 
 	 width: 100%;
 }
-
-
 
 @media (max-width : 600px){
 	#orderImg{
 		max-width: 20%;
 		}
-	.orderDetail{
-		max-width: 70%;
-		}
+	.orderTable{
+		width: 80%;
+		margin-bottom : 0.5em;
+}
+}
+
+@media (max-width: 400px){
+	header.daybtn{
+		display:block;
 	}
-	
-.orderTable{
-	width: 100%；
-	margin-bottom : 0.5em;
-}	
+}
 
 @media (min-width: 600px) {
 	.orderTable{
-		max-width: 50%；
+		width: 40%;
+		align-content: center;
 	}
 	#orderImg{
 		max-width: 30%;
@@ -957,13 +957,6 @@ div.daybtn{
 	display: flex;
 	flex-direction:row;
 	flex-wrap: wrap;
-}
-
-@media (max-width: 400px){
-	header.daybtn{
-		display:block;
-	}
-	
 }
 	
 ul.special{
@@ -1045,6 +1038,8 @@ li.weekdayover > img{
 	}
 div.daydetail > p{
 	margin : 0;
+	text-align: center;
+	width: 100%;
 	}
 	div.daydetail > p#ordermenu{
 		font-weight:100;

@@ -60,9 +60,8 @@
         <!-- Select Begin Day -->
         <div class="container">
 			<div class="daybtn">
-				<a href="#" class="button bgnday" id="nextdvlday">Next Monday</a>
-                <a href="#" class="button bgnday" id="nextmon">Monday after next week</a>
-			</div>
+				<a href="#" class="button bgnday" id="nextweek">Next Monday</a>
+            </div>
 		</div>
         <!-- Weekly Meal Button -->
         <div class="container">
@@ -70,35 +69,35 @@
             <li class="image weekday" >
                	<img class="imagebtn" id="WeekMon" src="images/pic01.jpg" alt=""/></img>
                 <div class="daydetail" id="WeekMon">
-                  <p>Monday, today is 8th, Jan 2015 </p>
+                  <p id = "orderdate">Monday, today is 8th, Jan 2015 </p>
  	              <p id="ordermenu"><em>Menu: </em> Burgers & Sandwiches / Calories	530 / Total Fat	27g	42% / Carbohydrates	47g	16% </p>
                 </div>
               </li>
 			<li class="image weekday">
                	<img class="imagebtn" id="WeekTue" src="images/pic01.jpg" alt=""/></img>
                 <div class="daydetail" id="WeekTue">
-                	<p>Tuesday, today is 9th, Jan 2015</p>
+                	<p id = "orderdate">Tuesday, today is 9th, Jan 2015</p>
                 	<p id="ordermenu"><em>Menu: </em> Burgers & Sandwiches / Calories	530 / Total Fat	27g	42% / Carbohydrates	47g	16% </p>
                 </div>
             </li>
 			<li class="image weekday">
                	<img class="imagebtn" id="WeekWed" src="images/pic01.jpg" alt=""/></img>
                 <div class="daydetail" id="WeekWed">
-                <p>Wedesday</p>
+                <p id = "orderdate">Wedesday</p>
                 <p id="ordermenu">Menu:</p>
                 </div>
             </li>
             <li class="image weekday">
-               	<img class="imagebtn" id="WeekThr" src="images/pic01.jpg" alt=""/></img>
+               	<img class="imagebtn" id="WeekThu" src="images/pic01.jpg" alt=""/></img>
                 <div class="daydetail" id="WeekThu">
-                <p>Thursday</p>
+                <p id = "orderdate">Thursday</p>
                  <p id="ordermenu">Menu:</p>
                 </div>
             </li>
 			<li class="image weekday">
                	<img class="imagebtn" id="WeekFri" src="images/pic01.jpg" alt=""/></img>
                 <div class="daydetail" id="WeekFri">
-                <p>Friday</p>
+                <p id="orderdate">Friday</p>
                 <p id="ordermenu">Menu:</p>
                 </div>
             </li>
@@ -111,79 +110,58 @@
 </section>
         
             
-        <!-- Order Summary -->
-		<section class="wrapper style2">
-			<div class="container">
-            	<div class="row 50%" style="display: flex">
-                    <div class="6u 12u(3)">		
-                        <h2>Order Summary</h2>
-                   	</div>
-                    <div class="6u 12u(3)" style="text-align: right" id="ordertotal"><h2>Order Total : <em>$ 0</em> </h2>
-                    </div>
-                </div>
-                <section class="content" id="orderSum">
-               	 <div class="image left" id="orderImg">
-                    	<img src="images/pic01_mini.jpg" alt=""/>
-                 </div>
-                 <div class="orderDetail">
-                     <div class="orderTable">
-                     <table>
-                        <tr >
-                            <th><h4>Meal Number</h4></th>
-                            <th><h4>Time</h4></th>
-                        </tr>
-                        <tr>
-                            <th id="meal-number"> 1 </th>
-                            <th> 11:30 - 12:30 </th>
-                        </tr>
-                     </table>
-                     </div>
-                     <div class="orderTable">
-                     <table>
-                        <tr >
-                            <th><h4>Receive Date</h4> </th>
-                            <th><h4>Location</h4> </th>
-                        </tr>
-                        <tr>
-                            <th id="next-dvl-date"> Next deliverable date </th>
-                            <th id="dvl-location">delivery location </th>
-                        </tr>                   
-                     </table>
-                     </div>
-                   </div>
-                   <div class="image left" id="orderImg">
-                    	<img src="images/pic01_mini.jpg" alt=""/>
-                 </div>
-                 <div class="orderDetail">
-                     <div class="orderTable">
-                     <table>
-                        <tr >
-                            <th><h4>Meal Number</h4></th>
-                            <th><h4>Time</h4></th>
-                        </tr>
-                        <tr>
-                            <th id="meal-number"> 1 </th>
-                            <th> 11:30 - 12:30 </th>
-                        </tr>
-                     </table>
-                     </div>
-                     <div class="orderTable">
-                     <table>
-                        <tr >
-                            <th><h4>Receive Date</h4> </th>
-                            <th><h4>Location</h4> </th>
-                        </tr>
-                        <tr>
-                            <th id="next-dvl-date"> Next deliverable date </th>
-                            <th id="dvl-location">delivery location </th>
-                        </tr>                   
-                     </table>
-                     </div>
-                   </div>
-                  
-                </section>
-			</div>
-		</section>
+<!-- Order Summary -->
+<section class="wrapper style2">
+    <div class="container">
+    <div class="row 50%" style="display: flex">
+        <div class="6u 12u(3)"><h2>Order Summary</h2></div>
+        <div class="6u 12u(3)" style="text-align: right" id="ordertotal">
+        	<h2>Order Total : <em>$ 0</em> </h2>
+        </div>
+    </div>
+    <section class="content" id="orderSum">
+    <div class="orderDetail">
+     <div class="image left" id="orderImg">
+        <img src="images/pic01_mini.jpg" alt=""/>
+     </div>
+     <div class="orderTable">
+     <table>
+        <tr >
+            <th><h4>Meal Number</h4></th>
+            <th><h4>Time</h4></th>
+        </tr>
+        <tr>
+            <th id="meal-number">
+            <a href="#" class="icon fa-minus fa-lg"></a>
+             <span id="meal-number" style="margin: 0 1em 0 1em"> 1 </span> 
+             <a href="#" class="icon fa-plus fa-lg"></a>
+             </th>
+            <th> 11:30 - 12:30 </th>
+        </tr>
+     </table>
+     </div>
+     <div class="orderTable">
+     <table>
+        <tr >
+            <th><h4>Receive Date</h4> </th>
+            <th><h4>Location</h4> </th>
+        </tr>
+        <tr>
+            <th id="dvl_date"> Next deliverable date </th>
+            <th id="dvl_loc">
+                <select id="dvl_loc">
+                  <option>Business</option>
+                  <option>IST</option>
+                  <option>Pollock</option>
+                </select>
+            </th>
+        </tr>                   
+     </table>
+     </div>
+    </div>
+    </section>
+ </div>
+</section>
             
         <!-- Order Info -->
         <section class="wrapper style1">
@@ -272,37 +250,46 @@
 					</div>
 
 			</div>
-            
-<script type="text/template" id="tr-template">
-               	 <div class="image left" id="orderImg">
-                    	<img src="images/pic01_mini.jpg" alt=""/>
-                 </div>
-                 <div class="orderDetail">
-                     <div class="orderTable">
-                     <table>
-                        <tr >
-                            <th><h4>Meal Number</h4></th>
-                            <th><h4>Time</h4></th>
-                        </tr>
-                        <tr>
-                            <th id="meal-number"> 1 </th>
-                            <th> 11:30 - 12:30 </th>
-                        </tr>
-                     </table>
-                     </div>
-                     <div class="orderTable">
-                     <table>
-                        <tr >
-                            <th><h4>Receive Date</h4> </th>
-                            <th><h4>Location</h4> </th>
-                        </tr>
-                        <tr>
-                            <th id="next-dvl-date"> Next deliverable date </th>
-                            <th id="dvl-location">delivery location </th>
-                        </tr>                   
-                     </table>
-                     </div>
-                   </div>
+<script type="text/template" id="order-template">
+<div class="orderDetail">
+     <div class="image left" id="orderImg">
+        <img src="images/pic01_mini.jpg" alt=""/>
+     </div>
+     <div class="orderTable">
+     <table>
+        <tr >
+            <th><h4>Meal Number</h4></th>
+            <th><h4>Time</h4></th>
+        </tr>
+        <tr>
+            <th id="meal-number">
+            <a href="#" class="icon fa-minus fa-lg"></a>
+             <span id="meal-number" style="margin: 0 1em 0 1em"> 1 </span> 
+             <a href="#" class="icon fa-plus fa-lg"></a>
+             </th>
+            <th> 11:30 - 12:30 </th>
+        </tr>
+     </table>
+     </div>
+     <div class="orderTable">
+     <table>
+        <tr >
+            <th><h4>Receive Date</h4> </th>
+            <th><h4>Location</h4> </th>
+        </tr>
+        <tr>
+            <th id="dvl_date"> Next deliverable date </th>
+            <th id="dvl_loc">
+                <select id="dvl_loc">
+                  <option>Business</option>
+                  <option>IST</option>
+                  <option>Pollock</option>
+                </select>
+            </th>
+        </tr>                   
+     </table>
+     </div>
+	</div>
 </script>
 	</body>
 </html>

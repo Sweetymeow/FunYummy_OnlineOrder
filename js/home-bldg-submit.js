@@ -18,10 +18,11 @@ var orderjson = new Object(); // use to save JSON data
 $(function(){
 	var today = new Date();
 	var beginDate = nextWorkDate(today);
+	var orderIndex = 1;
 	var menutext = $('<p id="ordermenu"><em>Menu: </em> this part is menu. </p>');
-	var menu = ["Burgers & Sandwiches / Calories 530 / Total Fat	27g 42% / Carbohydrates 47g","Menu : test1","Menu : test2","Menu : test3","Menu : test4"]; // Menu Array
+	var menu = ["Menu : Burgers & Sandwiches / Calories 530 / Total Fat	27g 42% / Carbohydrates 47g","Menu : Burgers & Sandwiches / Calories 530 / Total Fat	27g 42% / Carbohydrates 47g","Menu : test2","Menu : test3","Menu : test4"]; // Menu Array
 	
-	$('.daydetail p:nth-child(1)').each(function(){
+	$('.daydetail p:nth-child(1)').each(function(i){
 		var nextDvlDate = nextWorkDate(beginDate);
 		console.log("next date is" + nextDvlDate.getDate());
 		var htmlDate = printDate(beginDate);
@@ -32,14 +33,68 @@ $(function(){
 		$(this).html(menu[i]);
 		i++;
 	});
-
-	$('a#nextdvlday').click(function(){
-		beginDate = nextMonDate(today);
-		
-		
+	
+	// start day button - next Monday
+	$('a#nextweek').click(function(){ 
+		var d = new Date();
+		beginDate = nextMonDate(nextWorkDate(d)); // this is next Monday
+		$('.daydetail p:nth-child(1)').each(function(){
+			var htmlDate = printDate(beginDate); // html string
+			$(this).html(htmlDate);
+			var nextDvlDate = nextWorkDate(beginDate);
+			console.log("next date is" + nextDvlDate.getDate());
+			beginDate.setDate(nextDvlDate.getDate()); 
+		});
+	});
+	
+	/* 	// 订单模板
+		var $orderdiv = $('#order-template').html(); 
+		$('section#orderSum').append($orderdiv);
+	*/
+	
+	// week menu button
+	$('img#WeekMon').click(function(){
+		var $orderdiv = $('#order-template').html();
+		var dateText = $(this).parent().find('p:first-child').text();
+		var date = dateText.split(". ");
+		$('section#orderSum').append($orderdiv);
+		//$('div.orderDetail').find('th#dvl_date').text(date[0]);
+		orderIndex++;
+		//alert("order index :" + orderIndex);
+	});
+	// 没有实现 - 有问题， 注意日期获得的部分
+	$('img#WeekTue').click(function(){
+		//alert("click Week Tuesday Button!");
+		var $orderdiv = $('#order-template').html();
+		var dateText = $(this).parent().find('p:first-child').text();
+		var date = dateText.split(". ");
+		$('section#orderSum').append($orderdiv);
+		orderIndex++;
+		alert("order index :" + orderIndex);
 		
 	});
-	$('a#nextmon').click(function(){
+	// 没有实现
+	$('img#WeekWed').click(function(){
+		//alert("click Week Wedday Button!");
+		var $orderdiv = $('#order-template').html();
+		var dateText = $(this).parent().find('p:first-child').text();
+		var date = dateText.split(". ");
+		$('section#orderSum').append($orderdiv);
+		orderIndex++;
+		alert("order index :" + orderIndex);
+		
+	});
+	$('img#WeekThu').click(function(){
+		//alert("click Week Thursday Button!");
+		var $orderdiv = $('#order-template').html();
+		$('section#orderSum').append($orderdiv);
+		
+	});
+	$('img#WeekFri').click(function(){
+		//alert("click Week Friday Button!");
+		var $orderdiv = $('#order-template').html();
+		$('section#orderSum').append($orderdiv);
+		
 	});
   
 })
@@ -97,10 +152,27 @@ function printDate(testDate){
     else if (prt_date == 3 || prt_date == 23){sup = "rd";}
     else{sup = "th";}
 
-	var prtdate =  "<em>" + d_names[prt_day]  + "</em> . " + prt_date  + sup + ". " + m_names[prt_month] + ". " + prt_year;
+	var prtdate =  "<em>" + d_names[prt_day]  + "</em>. " + prt_date  + sup + ". " + m_names[prt_month] + ". " + prt_year;
 	
 	return prtdate;
 }
+
+function nextMonDate(testDate){
+	var beginDate = testDate;
+	
+	if(IsMonday(beginDate)){
+		var nextMon = beginDate.getDate()+7;
+		beginDate.setDate(nextMon);
+	}else if(beginDate.getDay() == 0){
+		var nextMon = beginDate.getDate()+1;
+		beginDate.setDate(nextMon);
+	}else{
+		var nextMon = beginDate.getDate()+8- beginDate.getDay();
+		beginDate.setDate(nextMon);
+	}
+	
+	return beginDate;
+	}
 
 function nextDeliveryDate(givenDate){ 
 // Calculate the next deliverable day for Week Or Rush Order
@@ -226,8 +298,6 @@ function IsWeekend(givenDate) {
 
 $(function(){
 	var ist = $.cookie('IST');
-	var $orderdiv = $('#tr-template').html();
-	$('section#orderSum').append($orderdiv);
 	
 	$('section#orderSum').append('<div><p> This is test of cookie: ' + ist + '</p></div>');
 	if(orderArray.length>0){
