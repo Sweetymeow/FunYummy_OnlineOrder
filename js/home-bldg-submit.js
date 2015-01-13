@@ -8,8 +8,7 @@ var d_names = new Array("Sunday", "Monday", "Tuesday",
 var menu = new Array();
 var menuStr = "";
 
-var d = new Date();
-var weekdates = new Array(5);
+var orderdates = new Array(50);
 
 var orderjson = new Object(); // use to save JSON data
 
@@ -17,15 +16,17 @@ var orderjson = new Object(); // use to save JSON data
 // Week Order Page
 $(function(){
 	var today = new Date();
-	var beginDate = nextWorkDate(today);
-	var orderIndex = 1;
+	var beginDate = new Date();
+	//var beginDate = nextWorkDate(today);
+	var orderIndex = 0;
 	var menutext = $('<p id="ordermenu"><em>Menu: </em> this part is menu. </p>');
-	var menu = ["Menu : Burgers & Sandwiches / Calories 530 / Total Fat	27g 42% / Carbohydrates 47g","Menu : Burgers & Sandwiches / Calories 530 / Total Fat	27g 42% / Carbohydrates 47g","Menu : test2","Menu : test3","Menu : test4"]; // Menu Array
-	
+	// Menu content array
+	var menu = ["Menu : Burgers & Sandwiches / Calories 530 / Total Fat	27g 42% / Carbohydrates 47g","Menu : Burgers & Sandwiches / Calories 530 / Total Fat	27g 42% / Carbohydrates 47g","Menu : test2","Menu : test3","Menu : test4"]; 
+		
 	$('.daydetail p:nth-child(1)').each(function(i){
-		var nextDvlDate = nextWorkDate(beginDate);
+		var nextDvlDate = nextWorkDate(today);
 		console.log("next date is" + nextDvlDate.getDate());
-		var htmlDate = printDate(beginDate);
+		var htmlDate = printDate(nextDvlDate);
 		$(this).html(htmlDate);
 		beginDate.setDate(nextDvlDate.getDate()); 
 	});
@@ -52,58 +53,111 @@ $(function(){
 		$('section#orderSum').append($orderdiv);
 	*/
 	
-	// week menu button
-	$('img#WeekMon').click(function(){
+	// week menu button - 实现增加一个订单Detail的功能，但是日期不详细
+	$('img#day1').click(function(){
 		var $orderdiv = $('#order-template').html();
 		var dateText = $(this).parent().find('p:first-child').text();
 		var date = dateText.split(". ");
 		$('section#orderSum').append($orderdiv);
-		//$('div.orderDetail').find('th#dvl_date').text(date[0]);
+		orderdates[orderIndex] = date[0]; 
 		orderIndex++;
-		//alert("order index :" + orderIndex);
+		$('div.orderDetail').each(function(i) {
+			$(this).find('th#dvl_date').text(orderdates[i]);
+			console.log("order Date :" + orderdates[i]);
+    	}); // 
+		alert("order dates :" + orderdates[orderIndex-1]);
 	});
+	
+	
 	// 没有实现 - 有问题， 注意日期获得的部分
-	$('img#WeekTue').click(function(){
+	$('img#day2').click(function(){
 		//alert("click Week Tuesday Button!");
 		var $orderdiv = $('#order-template').html();
 		var dateText = $(this).parent().find('p:first-child').text();
 		var date = dateText.split(". ");
 		$('section#orderSum').append($orderdiv);
+		orderdates[orderIndex] = date[0]; 
 		orderIndex++;
-		alert("order index :" + orderIndex);
+		$('div.orderDetail').each(function(i) {
+			$(this).find('th#dvl_date').text(orderdates[i]);
+			console.log("order Date :" + orderdates[i]);
+    	}); // 
+		alert("order dates :" + orderdates[orderIndex-1]);
 		
 	});
 	// 没有实现
-	$('img#WeekWed').click(function(){
+	$('img#day3').click(function(){
 		//alert("click Week Wedday Button!");
 		var $orderdiv = $('#order-template').html();
 		var dateText = $(this).parent().find('p:first-child').text();
 		var date = dateText.split(". ");
 		$('section#orderSum').append($orderdiv);
+		orderdates[orderIndex] = date[0]; 
 		orderIndex++;
-		alert("order index :" + orderIndex);
+		$('div.orderDetail').each(function(i) {
+			$(this).find('th#dvl_date').text(orderdates[i]);
+			console.log("order Date :" + orderdates[i]);
+    	}); // 
+		alert("order dates :" + orderdates[orderIndex-1]);
 		
 	});
-	$('img#WeekThu').click(function(){
-		//alert("click Week Thursday Button!");
+	$('img#day4').click(function(){
 		var $orderdiv = $('#order-template').html();
+		var dateText = $(this).parent().find('p:first-child').text();
+		var date = dateText.split(". ");
 		$('section#orderSum').append($orderdiv);
+		orderdates[orderIndex] = date[0]; 
+		orderIndex++;
+		$('div.orderDetail').each(function(i) {
+			$(this).find('th#dvl_date').text(orderdates[i]);
+			console.log("order Date :" + orderdates[i]);
+    	}); // 
+		alert("order dates :" + orderdates[orderIndex-1]);
 		
 	});
-	$('img#WeekFri').click(function(){
-		//alert("click Week Friday Button!");
+	$('img#day5').click(function(){
 		var $orderdiv = $('#order-template').html();
+		var dateText = $(this).parent().find('p:first-child').text();
+		var date = dateText.split(". ");
 		$('section#orderSum').append($orderdiv);
-		
+		orderdates[orderIndex] = date[0]; 
+		orderIndex++;
+		$('div.orderDetail').each(function(i) {
+			$(this).find('th#dvl_date').text(orderdates[i]);
+			console.log("order Date :" + orderdates[i]);
+    	}); // 
+		alert("order dates :" + orderdates[orderIndex-1]);
+		$('button#mealplus').parent().find("span").css("color","red");
 	});
+	/*$('button#mealminus').click(function(){		
+		var $cur_mealNum = $(this).parent().find("span").text();
+		$(this).parent().find("span").text($cur_mealNum-1);
+	}); 
+	*/
   
 })
 
+function createOrderNum(givenDate, orderIndex){
+	var orderID  = "";
+	// orderID = year + month + date + hour + minus + second
+	orderID
+	
+	}
 
-
+$(function(){
+	
+	$('button#mealplus').click(function(){		
+		$(this).parent().find("span").css("font","red");
+		var cur_mealNum = $(this).parent().find("span").text();
+		alert("click plus button : " + cur_mealNum);
+		$(this).parent().find("span").text(cur_mealNum+1);
+	});
+	
+})
 
 // Weekly Schedule page, start day selected button
 $(function(){
+	var d = new Date();
 	var next_dvl_date = nextDeliveryDate(d);
 	
 	// start day selected button, next Monday
@@ -119,6 +173,7 @@ $(function(){
 
 // show today date on tag with id = today
 function showDate(){
+	var d = new Date();
 	var curr_day = d.getDay();  // day of week
 	var curr_date = d.getDate(); // date of month
 	var curr_month = d.getMonth();
@@ -174,8 +229,9 @@ function nextMonDate(testDate){
 	return beginDate;
 	}
 
-function nextDeliveryDate(givenDate){ 
+function nextDeliveryDate(testDate){ 
 // Calculate the next deliverable day for Week Or Rush Order
+	var givenDate = testDate;
 
 	if(givenDate.getHours() < 21){ 
 		var nextdate = givenDate.getDate()+1;
@@ -189,7 +245,7 @@ function nextDeliveryDate(givenDate){
 		}
 	}else if(givenDate.getHours() >= 21){
 		var nextdate = givenDate.getDate()+2;
-		givenDate.setDate(nextdate.getDate());
+		givenDate.setDate(nextdate);
 		
 		if(IsWeekend(givenDate) == 1 || IsWeekend(givenDate) == 2){
 			// if the beginDate is Sun or Sat
@@ -216,7 +272,7 @@ function nextWorkDate(testDate){
 	}else{
 		var nextdate = givenDate.getDate()+1;
 		givenDate.setDate(nextdate);
-		console.log("get next work day");
+		//console.log("get next work day");
 	}
 	
 	return  givenDate; // day of week, string
@@ -296,12 +352,15 @@ function IsWeekend(givenDate) {
 	}
 }
 
+// test of local storage from Home to Rush Order
 $(function(){
 	var ist = $.cookie('IST');
 	
+	// test of cookie
 	$('section#orderSum').append('<div><p> This is test of cookie: ' + ist + '</p></div>');
+	// test of array
 	if(orderArray.length>0){
-	$('section#orderSum').append('<div><p> This is test of array: ' + orderArray[1].bldg + '</p></div>');
+		$('section#orderSum').append('<div><p> This is test of array: ' + orderArray[1].bldg + '</p></div>');
 	}
 	$('section#orderSum').append('<div><p> || This is test of localStorage: ' + localStorage.getItem("IST") + '</p></div>');
 })
