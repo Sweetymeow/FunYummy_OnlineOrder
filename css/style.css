@@ -918,7 +918,11 @@
 	.orderTable{
 		width: 80%;
 		margin-bottom : 0.5em;
-}
+	}
+	div.daydetail{
+		max-width: 80%;
+	}
+
 }
 
 @media (max-width: 400px){
@@ -940,7 +944,7 @@
 	padding: 0 1em 0 1em;
 	}
 	div.daydetail{
-		max-width: 70%;
+		max-width: 65%;
 	}
 }
 

@@ -12,7 +12,6 @@ var orderdates = new Array(50);
 
 var orderjson = new Object(); // use to save JSON data
 
-
 // Week Order Page
 $(function(){
 	var today = new Date();
@@ -21,7 +20,8 @@ $(function(){
 	var orderIndex = 0;
 	var menutext = $('<p id="ordermenu"><em>Menu: </em> this part is menu. </p>');
 	// Menu content array
-	var menu = ["Menu : Burgers & Sandwiches / Calories 530 / Total Fat	27g 42% / Carbohydrates 47g","Menu : Burgers & Sandwiches / Calories 530 / Total Fat	27g 42% / Carbohydrates 47g","Menu : test2","Menu : test3","Menu : test4"]; 
+	var menu = ["Menu : Sweet Shrimp / Mapo Tofu / Yangzhou Fried Rice / Red bean soup / apple / Cock ","Menu : Chicken with cashew nuts / Chicken with snow pea pods / Chicken with almond ding / Boneless Chicken","Menu : Pepper Steak with onion / Beef with snow pea pods / Beef with chinese vegetables / Beef with mixed chinese","Menu : Beef with curry sauce / Beef with tomato & pepper / Beef with black bean sauce" , "Menu : Beef with curry sauce / Beef with tomato & pepper / Beef with black bean sauce"]; 
+	var $minusBtn = $("button#mealminus");
 		
 	$('.daydetail p:nth-child(1)').each(function(i){
 		var nextDvlDate = nextWorkDate(today);
@@ -65,7 +65,7 @@ $(function(){
 			$(this).find('th#dvl_date').text(orderdates[i]);
 			console.log("order Date :" + orderdates[i]);
     	}); // 
-		alert("order dates :" + orderdates[orderIndex-1]);
+		//alert("order dates :" + orderdates[orderIndex-1]);
 	});
 	
 	
@@ -81,11 +81,9 @@ $(function(){
 		$('div.orderDetail').each(function(i) {
 			$(this).find('th#dvl_date').text(orderdates[i]);
 			console.log("order Date :" + orderdates[i]);
-    	}); // 
-		alert("order dates :" + orderdates[orderIndex-1]);
-		
+    	}); 
 	});
-	// 没有实现
+	
 	$('img#day3').click(function(){
 		//alert("click Week Wedday Button!");
 		var $orderdiv = $('#order-template').html();
@@ -97,10 +95,9 @@ $(function(){
 		$('div.orderDetail').each(function(i) {
 			$(this).find('th#dvl_date').text(orderdates[i]);
 			console.log("order Date :" + orderdates[i]);
-    	}); // 
-		alert("order dates :" + orderdates[orderIndex-1]);
-		
+    	}); 
 	});
+	
 	$('img#day4').click(function(){
 		var $orderdiv = $('#order-template').html();
 		var dateText = $(this).parent().find('p:first-child').text();
@@ -111,29 +108,41 @@ $(function(){
 		$('div.orderDetail').each(function(i) {
 			$(this).find('th#dvl_date').text(orderdates[i]);
 			console.log("order Date :" + orderdates[i]);
-    	}); // 
-		alert("order dates :" + orderdates[orderIndex-1]);
-		
+    	}); 
 	});
+	
 	$('img#day5').click(function(){
 		var $orderdiv = $('#order-template').html();
 		var dateText = $(this).parent().find('p:first-child').text();
-		var date = dateText.split(". ");
+		//var date = dateText.split(". ");
 		$('section#orderSum').append($orderdiv);
-		orderdates[orderIndex] = date[0]; 
+		orderdates[orderIndex] = dateText; 
 		orderIndex++;
 		$('div.orderDetail').each(function(i) {
 			$(this).find('th#dvl_date').text(orderdates[i]);
 			console.log("order Date :" + orderdates[i]);
-    	}); // 
-		alert("order dates :" + orderdates[orderIndex-1]);
-		$('button#mealplus').parent().find("span").css("color","red");
+    	}); 
 	});
 	/*$('button#mealminus').click(function(){		
 		var $cur_mealNum = $(this).parent().find("span").text();
 		$(this).parent().find("span").text($cur_mealNum-1);
 	}); 
 	*/
+
+	$(document).on( "click", "#mealplus", function() {	 // work as a delegate
+		$(this).parent().find("span").css("font","red");
+		var cur_meal_text = $(this).parent().find("span").text();
+		var cur_meal_num = Number(cur_meal_text);
+		//alert("click plus button : " + cur_meal_num);
+		$(this).parent().find("span").text(cur_meal_num+1);
+	});
+	$(document).on( "click", "#mealminus",function() {		
+		$(this).parent().find("span").css("font","red");
+		var cur_meal_text = $(this).parent().find("span").text();
+		var cur_meal_num = Number(cur_meal_text);
+		//alert("click minus button : " + cur_meal_num);
+		$(this).parent().find("span").text(cur_meal_num - 1);
+	});
   
 })
 
@@ -144,16 +153,6 @@ function createOrderNum(givenDate, orderIndex){
 	
 	}
 
-$(function(){
-	
-	$('button#mealplus').click(function(){		
-		$(this).parent().find("span").css("font","red");
-		var cur_mealNum = $(this).parent().find("span").text();
-		alert("click plus button : " + cur_mealNum);
-		$(this).parent().find("span").text(cur_mealNum+1);
-	});
-	
-})
 
 // Weekly Schedule page, start day selected button
 $(function(){
@@ -206,8 +205,8 @@ function printDate(testDate){
     else if (prt_date == 2 || prt_date == 22){sup = "nd";}
     else if (prt_date == 3 || prt_date == 23){sup = "rd";}
     else{sup = "th";}
-
-	var prtdate =  "<em>" + d_names[prt_day]  + "</em>. " + prt_date  + sup + ". " + m_names[prt_month] + ". " + prt_year;
+	
+	var prtdate =  "<em>" + d_names[prt_day]  + "</em> " + m_names[prt_month] + " " + prt_date  + sup + " " + prt_year;
 	
 	return prtdate;
 }
