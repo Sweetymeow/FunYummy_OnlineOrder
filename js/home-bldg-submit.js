@@ -5,8 +5,13 @@ var orderArray = new Array(); // Home Page - temp keep order info
 var d_names = new Array("Sunday", "Monday", "Tuesday",
 "Wednesday", "Thursday", "Friday", "Saturday");
 
+var mealImgs = new Array("day1.jpg","day2.jpg","day3.jpg","day4.jpg","day5.jpg");
+var mealminiImgs = new Array("day1.jpg","day2.jpg","day3.jpg","day4.jpg","day5.jpg");
+
 var menu = new Array();
 var menuStr = "";
+var texpercent = 0.06;
+var credittips = 0.15;
 
 var orderdates = new Array(50);
 
@@ -21,7 +26,10 @@ $(function(){
 	var menutext = $('<p id="ordermenu"><em>Menu: </em> this part is menu. </p>');
 	// Menu content array
 	var menu = ["Menu : Sweet Shrimp / Mapo Tofu / Yangzhou Fried Rice / Red bean soup / apple / Cock ","Menu : Chicken with cashew nuts / Chicken with snow pea pods / Chicken with almond ding / Boneless Chicken","Menu : Pepper Steak with onion / Beef with snow pea pods / Beef with chinese vegetables / Beef with mixed chinese","Menu : Beef with curry sauce / Beef with tomato & pepper / Beef with black bean sauce" , "Menu : Beef with curry sauce / Beef with tomato & pepper / Beef with black bean sauce"]; 
-	var $minusBtn = $("button#mealminus");
+	
+	// Add current class to week order
+	$("nav#nav > ul").children("li:nth-child(1)").removeClass("current");
+	$("nav#nav > ul").children("li:nth-child(2)").addClass("current");
 		
 	$('.daydetail p:nth-child(1)').each(function(i){
 		var nextDvlDate = nextWorkDate(today);
@@ -56,15 +64,23 @@ $(function(){
 	// week menu button - 实现增加一个订单Detail的功能，但是日期不详细
 	$('img#day1').click(function(){
 		var $orderdiv = $('#order-template').html();
-		var dateText = $(this).parent().find('p:first-child').text();
-		var date = dateText.split(". ");
+		var dateText = $(this).parent().parent().find('p:first-child').text();
+		var date = dateText.split(" ");
 		$('section#orderSum').append($orderdiv);
-		orderdates[orderIndex] = date[0]; 
+		orderdates[orderIndex] = dateText; 
 		orderIndex++;
 		$('div.orderDetail').each(function(i) {
 			$(this).find('th#dvl_date').text(orderdates[i]);
 			console.log("order Date :" + orderdates[i]);
     	}); // 
+		var mealdetail = new mealItems();
+		mealdetail.location = "business";
+		mealdetail.num = 1;
+		mealdetail.weekday = date[0];
+		mealdetail.date = date[2];
+		mealdetail.month = date[1];
+		mealdetail.year = date[3];
+		orderdates[orderIndex] = mealdetail;
 		//alert("order dates :" + orderdates[orderIndex-1]);
 	});
 	
@@ -73,48 +89,8 @@ $(function(){
 	$('img#day2').click(function(){
 		//alert("click Week Tuesday Button!");
 		var $orderdiv = $('#order-template').html();
-		var dateText = $(this).parent().find('p:first-child').text();
-		var date = dateText.split(". ");
-		$('section#orderSum').append($orderdiv);
-		orderdates[orderIndex] = date[0]; 
-		orderIndex++;
-		$('div.orderDetail').each(function(i) {
-			$(this).find('th#dvl_date').text(orderdates[i]);
-			console.log("order Date :" + orderdates[i]);
-    	}); 
-	});
-	
-	$('img#day3').click(function(){
-		//alert("click Week Wedday Button!");
-		var $orderdiv = $('#order-template').html();
-		var dateText = $(this).parent().find('p:first-child').text();
-		var date = dateText.split(". ");
-		$('section#orderSum').append($orderdiv);
-		orderdates[orderIndex] = date[0]; 
-		orderIndex++;
-		$('div.orderDetail').each(function(i) {
-			$(this).find('th#dvl_date').text(orderdates[i]);
-			console.log("order Date :" + orderdates[i]);
-    	}); 
-	});
-	
-	$('img#day4').click(function(){
-		var $orderdiv = $('#order-template').html();
-		var dateText = $(this).parent().find('p:first-child').text();
-		var date = dateText.split(". ");
-		$('section#orderSum').append($orderdiv);
-		orderdates[orderIndex] = date[0]; 
-		orderIndex++;
-		$('div.orderDetail').each(function(i) {
-			$(this).find('th#dvl_date').text(orderdates[i]);
-			console.log("order Date :" + orderdates[i]);
-    	}); 
-	});
-	
-	$('img#day5').click(function(){
-		var $orderdiv = $('#order-template').html();
-		var dateText = $(this).parent().find('p:first-child').text();
-		//var date = dateText.split(". ");
+		var dateText = $(this).parent().parent().find('p:first-child').text();
+		var date = dateText.split(" ");
 		$('section#orderSum').append($orderdiv);
 		orderdates[orderIndex] = dateText; 
 		orderIndex++;
@@ -122,6 +98,78 @@ $(function(){
 			$(this).find('th#dvl_date').text(orderdates[i]);
 			console.log("order Date :" + orderdates[i]);
     	}); 
+		var mealdetail = new mealItems();
+		mealdetail.location = "business";
+		mealdetail.num = 1;
+		mealdetail.weekday = date[0];
+		mealdetail.date = date[2];
+		mealdetail.month = date[1];
+		mealdetail.year = date[3];
+		orderdates[orderIndex] = mealdetail;
+	});
+	
+	$('img#day3').click(function(){
+		//alert("click Week Wedday Button!");
+		var $orderdiv = $('#order-template').html();
+		var dateText = $(this).parent().parent().find('p:first-child').text();
+		var date = dateText.split(" ");
+		$('section#orderSum').append($orderdiv);
+		orderdates[orderIndex] = dateText; 
+		orderIndex++;
+		$('div.orderDetail').each(function(i) {
+			$(this).find('th#dvl_date').text(orderdates[i]);
+			console.log("order Date :" + orderdates[i]);
+    	}); 
+		var mealdetail = new mealItems();
+		mealdetail.location = "business";
+		mealdetail.num = 1;
+		mealdetail.weekday = date[0];
+		mealdetail.date = date[2];
+		mealdetail.month = date[1];
+		mealdetail.year = date[3];
+		orderdates[orderIndex] = mealdetail;
+	});
+	
+	$('img#day4').click(function(){
+		var $orderdiv = $('#order-template').html();
+		var dateText = $(this).parent().parent().find('p:first-child').text();
+		var date = dateText.split(" ");
+		$('section#orderSum').append($orderdiv);
+		orderdates[orderIndex] = dateText; 
+		orderIndex++;
+		$('div.orderDetail').each(function(i) {
+			$(this).find('th#dvl_date').text(orderdates[i]);
+			console.log("order Date :" + orderdates[i]);
+    	}); 
+		var mealdetail = new mealItems();
+		mealdetail.location = "business";
+		mealdetail.num = 1;
+		mealdetail.weekday = date[0];
+		mealdetail.date = date[2];
+		mealdetail.month = date[1];
+		mealdetail.year = date[3];
+		orderdates[orderIndex] = mealdetail;
+	});
+	
+	$('img#day5').click(function(){
+		var $orderdiv = $('#order-template').html();
+		var dateText = $(this).parent().parent().find('p:first-child').text();
+		var date = dateText.split(" ");
+		$('section#orderSum').append($orderdiv);
+		orderdates[orderIndex] = dateText; 
+		orderIndex++;
+		$('div.orderDetail').each(function(i) {
+			$(this).find('th#dvl_date').text(orderdates[i]);
+			console.log("order Date :" + orderdates[i]);
+    	}); 
+		var mealdetail = new mealItems();
+		mealdetail.location = "business";
+		mealdetail.num = 1;
+		mealdetail.weekday = date[0];
+		mealdetail.date = date[2];
+		mealdetail.month = date[1];
+		mealdetail.year = date[3];
+		orderdates[orderIndex] = mealdetail;
 	});
 	/*$('button#mealminus').click(function(){		
 		var $cur_mealNum = $(this).parent().find("span").text();
@@ -129,46 +177,85 @@ $(function(){
 	}); 
 	*/
 
-	$(document).on( "click", "#mealplus", function() {	 // work as a delegate
+	$("body").on( "click", "#mealplus", function() {	 // work as a delegate
 		$(this).parent().find("span").css("font","red");
 		var cur_meal_text = $(this).parent().find("span").text();
 		var cur_meal_num = Number(cur_meal_text);
-		//alert("click plus button : " + cur_meal_num);
 		$(this).parent().find("span").text(cur_meal_num+1);
+		//alert("find meal number change !");
 	});
-	$(document).on( "click", "#mealminus",function() {		
+	
+	$("body").on( "click", "#mealminus",function() {		
 		$(this).parent().find("span").css("font","red");
 		var cur_meal_text = $(this).parent().find("span").text();
 		var cur_meal_num = Number(cur_meal_text);
 		//alert("click minus button : " + cur_meal_num);
 		$(this).parent().find("span").text(cur_meal_num - 1);
 	});
+	
+	$("body").on("click", "img", function(){
+		var $meal_num = 0;
+		$("th#meal-number > span").each(function(){
+			$meal_num += parseInt($(this).text());
+		});
+		var total = 12*$meal_num;
+		$('div#ordertotal').children("h4").html("<h2>Order Total : <em>$ " + total +".0 </em> </h4>");
+		$('div#ordertotal').children("h4").css("color", "#FF0050");
+	});
+	
+	
+	// 注意是事件触发的冒泡顺序
+	$(document).on("click", "th#meal-number > button", function(){
+		var $meal_num = 0;
+		$("span#meal-number").each(function(){
+			$meal_num += parseInt($(this).text());
+		});
+		alert("find meal number change !!!" + $meal_num);
+		var total = 12*$meal_num;
+		$('div#ordertotal').children("h4").html("<h2>Order Total : <em>$ " + total +".0 </em> </h4>");
+		$('div#ordertotal').children("h4").css("color", "#FF0050");
+	});
+	
+	var paymentBool = false ;
+	// choose payment type
+	$("input.button").click(function(){
+		if(!paymentBool){
+			$("input.button").css("background-color","#484848");
+			$(this).css("background-color","#EB8384");
+			paymentBool = true;
+		}else{
+			$("input.button").css("background-color","#484848");
+			$(this).css("background-color","#484848");
+			paymentBool = false;
+		}
+		
+	});
+	
+	// fack server file - POST Json Data
+	/*$("input").post( "ajax/test.html", function( data ) {
+		var obj = {};
+		obj['name']=$("input[name='name']"); //string
+		obj['cellphone']=$("input[name='cellphone']");
+		obj['email']=$("input[name='email']");
+    	obj['age'] = 32;  // integer.
+		for(var i = 0; i <= orderIndex+1; i++){
+			var name = "order_" + orderIndex;
+			}
+    	 //array
+		JSON.stringify(obj);
+ 	 $( ".result" ).html( data );
+});
+	*/
+	// next step : counting final total
   
 })
 
+// 这个需要实现，计算order ID
 function createOrderNum(givenDate, orderIndex){
 	var orderID  = "";
 	// orderID = year + month + date + hour + minus + second
-	orderID
 	
 	}
-
-
-// Weekly Schedule page, start day selected button
-$(function(){
-	var d = new Date();
-	var next_dvl_date = nextDeliveryDate(d);
-	
-	// start day selected button, next Monday
-	$('a.bgnday:nth-child(1)').on('click', function(){
-		
-		console.log("Next Delivery Day is: " + next_dvl_date);
-	});
-	// start day selected button, Monday after next week
-	$('a.bgnday:nth-child(2)').on('click', function(){
-		console.log("find next Monday");	
-	});
-})	
 
 // show today date on tag with id = today
 function showDate(){
@@ -228,8 +315,8 @@ function nextMonDate(testDate){
 	return beginDate;
 	}
 
-function nextDeliveryDate(testDate){ 
 // Calculate the next deliverable day for Week Or Rush Order
+function nextDeliveryDate(testDate){ 
 	var givenDate = testDate;
 
 	if(givenDate.getHours() < 21){ 
@@ -256,6 +343,7 @@ function nextDeliveryDate(testDate){
 	return  givenDate; // day of week, string
 }
 
+// Calculate the next work day for Week Or Rush Order
 function nextWorkDate(testDate){
 	var givenDate = testDate;
 	
@@ -365,10 +453,41 @@ $(function(){
 })
 
 
+// 为每个menu button 放入合适的图片元素 - 这里包含src 
 $(function() {
-    if (window.matchMedia('(max-width: 767px)').matches) {
+    $("img.imagebtn").each(function() {
+        var dateText = $(this).parent().parent().find('p:first-child').text();
+		var date = dateText.split(" ");
+		var imgIndex = 0;
+		switch(date[0]){
+			case "Tuesday" : imgIndex = 1; break;
+			case "Wednesday": imgIndex = 2; break;
+			case "Thursday": imgIndex = 3; break;
+			case "Friday": imgIndex = 4; break;
+			default: imgIndex = 0; break;
+			}
+		var imgurl = "images/" + mealImgs[imgIndex];
+		$(this).attr("src", imgurl);
+    });
+	
+	if (window.matchMedia('(max-width: 767px)').matches) {
          // do functionality on screens smaller than 768px
-		 $('img.imagebtn').attr('src', 'images/pic01_mini.jpg');
+		 /*$('img.imagebtn').attr('src', 'images/pic01_mini.jpg');
+		 */
+		 $("img.imagebtn").each(function() {
+        var dateText = $(this).parent().parent().find('p:first-child').text();
+		var date = dateText.split(" ");
+		var imgIndex = 0;
+		switch(date[0]){
+			case "Tuesday" : imgIndex = 1; break;
+			case "Wednesday": imgIndex = 2; break;
+			case "Thursday": imgIndex = 3; break;
+			case "Friday": imgIndex = 4; break;
+			default: imgIndex = 0; break;
+			}
+		var imgurl = "images/" + mealminiImgs[imgIndex];
+		$(this).attr("src", imgurl);
+    });
 		 console.log("screen minor than 767");
     } else {
         //...
@@ -444,11 +563,20 @@ function orderList(bldg, number){
 	$.removeCookie();
 }
 
-function orderLists(location,weekday,num, date, month, year){
+function mealItems(location,weekday,num, date, month, year){
 	this.location = location;
 	this.weekday = weekday;
 	this.num = num;
 	this.date = date;
 	this.month = month;
 	this.year = year;
-	}
+}
+
+function mealItems(location,weekday,num, date, month, year){
+	this.location = location;
+	this.weekday = weekday;
+	this.num = num;
+	this.date = date;
+	this.month = month;
+	this.year = year;
+}

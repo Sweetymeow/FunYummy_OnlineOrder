@@ -67,35 +67,40 @@
         <div class="container">
 			<ul class="special">
             <li class="image weekday" >
-               	<img class="imagebtn" id="day1" src="images/pic01.jpg" alt=""/></img>
+               	<a href="#orderSum">
+                <img class="imagebtn" id="day1" src="images/pic01.jpg" alt="Day1 meal Image "/></img></a>
                 <div class="daydetail" id="day1">
                   <p id = "orderdate">Monday, today is 8th, Jan 2015 </p>
  	              <p id="ordermenu"><em>Menu: </em> Burgers & Sandwiches / Calories	530 / Total Fat	27g	42% / Carbohydrates	47g	16% </p>
                 </div>
               </li>
 			<li class="image weekday">
-               	<img class="imagebtn" id="day2" src="images/pic01.jpg" alt=""/></img>
+               	<a href="#orderSum">
+                <img class="imagebtn" id="day2" src="images/pic01.jpg" alt="Day2 meal Image"/></img></a>
                 <div class="daydetail" id="day2">
                 	<p id = "orderdate">Tuesday, today is 9th, Jan 2015</p>
                 	<p id="ordermenu"><em>Menu: </em> Burgers & Sandwiches / Calories	530 / Total Fat	27g	42% / Carbohydrates	47g	16% </p>
                 </div>
             </li>
 			<li class="image weekday">
-               	<img class="imagebtn" id="day3" src="images/pic01.jpg" alt=""/></img>
+               	<a href="#orderSum">
+                <img class="imagebtn" id="day3" src="images/pic01.jpg" alt="Day3 meal Image"/></img></a>
                 <div class="daydetail" id="day3">
                 <p id = "orderdate">Wedesday</p>
                 <p id="ordermenu">Menu:</p>
                 </div>
             </li>
             <li class="image weekday">
-               	<img class="imagebtn" id="day4" src="images/pic01.jpg" alt=""/></img>
+               	<a href="#orderSum">
+                <img class="imagebtn" id="day4" src="images/pic01.jpg" alt="Day4 meal Image"/></img></a>
                 <div class="daydetail" id="day4">
                 <p id = "orderdate">Thursday</p>
                  <p id="ordermenu">Menu:</p>
                 </div>
             </li>
 			<li class="image weekday">
-               	<img class="imagebtn" id="day5" src="images/pic01.jpg" alt=""/></img>
+               	<a href="#orderSum">
+                <img class="imagebtn" id="day5" src="images/pic01.jpg" alt="Day5 meal Image"/></img></a>
                 <div class="daydetail" id="day5">
                 <p id="orderdate">Friday</p>
                 <p id="ordermenu">Menu:</p>
@@ -116,7 +121,7 @@
     <div class="row 50%" style="display: flex">
         <div class="6u 12u(3)"><h2>Order Summary</h2></div>
         <div class="6u 12u(3)" style="text-align: right" id="ordertotal">
-        	<h2>Order Total : <em>$ 0</em> </h2>
+        	<h4 id="orderSum">Order Total : <em>$ 0</em> </h4>
         </div>
     </div>
     <section class="content" id="orderSum">
@@ -165,53 +170,49 @@
  </div>
 </section>
             
-        <!-- Order Info -->
-        <section class="wrapper style1">
-	        <div class="container">
-    	        <div id="content">
-                <h3>Order Infromation</h3>
-							<form>
-								<div class="row 50%">
-									<div class="6u 12u(3)">
-										<input type="text" name="name" id="name" placeholder="Name" />
-									</div>
-									<div class="6u 12u(3)">
-										<input type="cellphone" name="cellphone" id="cellphone" placeholder="Cellphone" />
-									</div>
-								</div>
-                                <div class="row 50%">
-                                	<div class="6u 12u(3)">
-										<input type="email" name="email" id="email" placeholder="Email" />
-									</div>
-								</div>
-                                
-                                 <h4>Payment Method: </h4>
-                                <div class="row 50%">
-									<div class="6u 12u(3)">
-										<ul class="actions">
-											<li><input type="submit" class="button alt" value="Cash" /></li>
-										</ul>
-									</div>
-									<div class="6u 12u(3)">
-										<ul class="actions">
-											<li><input type="submit" class="button alt" value="Credit" /></li>
-										</ul>
-									</div>
-								</div>
-								
-								<div class="row 50%" style="margin-bottom:2em">
-									<div class="12u">
-										<ul class="actions">
-											<li><input type="submit" class="button alt" value="Check" /></li>
-										</ul>
-									</div>
-								</div>
-							</form>
-                
-                
-        	    </div>
+<!-- Order Info -->
+<section class="wrapper style1">
+    <div class="container">
+        <div id="content">
+        <h3>Order Infromation</h3>
+        <form>
+            <div class="row 50%">
+                <div class="6u 12u(3)">
+                    <input type="text" name="name" id="name" placeholder="Name" />
+                </div>
+                <div class="6u 12u(3)">
+                    <input type="cellphone" name="cellphone" id="cellphone" placeholder="Cellphone" />
+                </div>
             </div>
-        </section>
+            <div class="row 50%">
+                <div class="6u 12u(3)">
+                    <input type="email" name="email" id="email" placeholder="Email" />
+                </div>
+            </div>
+            <div class="row 50%">
+            <h4 style=" width : 100% ; margin-top: 1em;">Payment Method: </h4>
+            <ul class="actions">
+                <li><input type="submit" class="button alt" value="Cash" /></li>
+            </ul>
+            <ul class="actions">
+                    <li><input type="submit" class="button alt" value="Credit *" /></li>   
+            </ul>
+            </div>
+            <div class="row 50%" style="margin-bottom:2em">
+                <div class="12u">
+                    <ul class="actions" style=" width: 100%">
+                        <li><input type="submit" class="button alt" value="Check" /></li>
+                        <p id="creditrule">* Order could paid by credit card only when it more than $15. Total price included 15% tips</p>
+                    </ul>
+                </div>
+                <div class="result"></
+            </div>
+        </form>
+        
+        
+        </div>
+    </div>
+</section>
 		<!-- Footer -->
 			<div id="footer">
 				<div class="container">
@@ -223,12 +224,9 @@
                                 ></li>
                             </ul>
 						</section>
-						<section class="6u 12u(2)" style="display: flex">
-							
-							<div id="order_button">
+						<section class="6u 12u(2)" >
+							<div id="order_button" style="display: flex">
 								<a href="log-in.html" class="button">Log in</a>
-								</div>
-                                <div  id="order_button">
 								<a href="sign-up.html" class="button">Sign up</a>
                             </div>
 						</section>
@@ -265,11 +263,11 @@
         </tr>
         <tr>
             <th id="meal-number">
-				<button href="#" class="icon fa-minus fa-lg" id="mealminus"></button>
+				<button class="icon fa-minus fa-lg" id="mealminus"></button>
 				 <span id="meal-number" style="margin: 0 1em 0 1em"> 1 </span> 
 				 <input type="hidden" name="meal-number" />
 				 <input type="hidden" name="order-total" id="order-total" />
-				 <button href="#" class="icon fa-plus fa-lg" id="mealplus"></button>
+				 <button class="icon fa-plus fa-lg" id="mealplus"></button>
              </th>
             <th> 11:30 - 12:30 </th>
         </tr>

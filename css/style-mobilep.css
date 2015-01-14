@@ -102,10 +102,10 @@ a.bgnday{
 
 
 li.weekday{
-	height: 80px;
+	min-height: 100px;
 }
 li.weekdayover{
-	height: 80px;
+	min-height: 100px;
 }
 
 ul.special{

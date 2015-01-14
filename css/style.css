@@ -370,6 +370,8 @@
 
 	ul.actions {
 		cursor: default;
+		display: flex;
+		width: 50%;
 	}
 
 		ul.actions:last-child {
@@ -490,10 +492,10 @@
 		input[type="reset"]:active,
 		input[type="button"]:active,
 		.button:active {
-	background-color: #ce4e44;
-	color: white;
-		}
-
+			background-color: #ce4e44;
+			color: white;
+				}
+			
 		input[type="submit"].alt,
 		input[type="reset"].alt,
 		input[type="button"].alt,
@@ -555,15 +557,18 @@
 	align-content: center;
 	padding: 2em;
 	}
-	#meal_num_text{
-		width: 80%;
-		text-align: right;
-		padding-right: 2em;
-		}
-	#order_button{
-		margin-bottom: 2em;
-		color:#FFFFFF;
-		}
+#meal_num_text{
+	width: 80%;
+	text-align: right;
+	padding-right: 2em;
+}
+#order_button{
+	margin-bottom: 2em;
+	color:#FFFFFF;
+}
+#order_button > a {
+	width: 45%;
+}
 
 /* Building Button*/
 #bldgBtnSec{
@@ -916,11 +921,15 @@
 		max-width: 20%;
 		}
 	.orderTable{
-		width: 80%;
+		max-width: 90%;
 		margin-bottom : 0.5em;
 	}
 	div.daydetail{
-		max-width: 80%;
+		height: 100%;
+		max-width: 60%;
+	}
+	li.weekday > a{
+	width: 130px;
 	}
 
 }
@@ -946,6 +955,12 @@
 	div.daydetail{
 		max-width: 65%;
 	}
+	#creditrule {
+		margin-top: 0.6em;
+	}
+	li.weekday > a{
+	width: 200px;
+	}
 }
 
 th{
@@ -970,6 +985,7 @@ ul.special{
 
 li.weekday{
 	width: 49%;
+	min-height: 120px;
 	margin: 0 0.5em 0.5em 0em;
 	box-sizing: border-box;
 	border-radius: 2% 2%;
@@ -1011,6 +1027,9 @@ a.icon{
 	height: 3em;
 	}
 
+li.weekday > a{
+	width: 200px;
+	}
 li.weekday > img{
 	border: none; 
 	overflow: hidden; 
