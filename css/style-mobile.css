@@ -120,24 +120,36 @@ ul.special{
 	}
 
 li.weekday{
-	min-height: 140px;
+	min-height: 120px;
 	width: 100%;
 	margin-right: 0;
 }
 li.weekdayover{
-	min-height: 140px;
+	min-height: 120px;
 	width: 100%;
 	margin-right: 0;
 }
 
-li.weekday img{
+@media(min-width:340px){
+	li.weekday img{
 	width: 125px;
 	height: 100px;
 	}
-li.weekday>a{
-	width: 125px;
+	.daydetail{
+		margin-left:0.5em;
+		}
+}
+
+@media(max-width:340px){
+li.weekday img{
+	width: 100px;
+	height: 80px;
+	}
+}
+li.weekday > a{
+	width: 120px;
 	}
 li.weekdayover img{
-	width: 125px;
-	height: 100px;
+	width: 100px;
+	height: 80px;
 	}
