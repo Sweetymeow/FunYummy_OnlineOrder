@@ -404,10 +404,33 @@ $("#rushorder").load(function(){
 $(function(){
 	var $buttonName = $("a.major").attr('id');
 	var n = $("a.major").length;
-	for(int i = 0; i< n ; i++ ){
-		
-	}
-}	
+	
+	// Working on
+	// week menu button - 实现增加一个订单Detail的功能，但是日期不详细
+	$('a.major').each(function(){
+		var $orderdiv = $('#order-template').html();
+		var today = getDate();
+		var dateArray[] ;
+		/*
+		$('section#orderSum').append($orderdiv);
+		orderdates[orderIndex] = dateText; 
+		$('div.orderDetail').each(function(i) {
+			$(this).find('th#dvl_date').text(orderdates[i]);
+			console.log("order Date :" + orderdates[i]);
+    	}); // 
+		var mealdetail = new mealItems();
+			mealdetail.location = "business";
+			mealdetail.num = 1;
+			mealdetail.weekday = date[0];
+			mealdetail.date = date[2];
+			mealdetail.month = date[1];
+			mealdetail.year = date[3];
+		orderLists[orderIndex] = mealdetail;
+		//alert("order dates :" + orderdates[orderIndex-1]);
+		orderIndex++;
+		*/
+	});
+	}	
 )
 
 // Home Page Rush Orde Building Choice Btn
