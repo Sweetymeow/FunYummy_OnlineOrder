@@ -3,16 +3,13 @@
 	pixelarity.com @pixelarity
 	License: pixelarity.com/license
 */
-
 /* Basic */
-
-	body, input, select, textarea {
-		font-size: 14pt;
-		line-height: 1.5em;
-	}
+body, input, select, textarea {
+  font-size: 14pt;
+  line-height: 1.5em; }
 
 /* Banner */
+#banner {
+  height: 24em; }
 
-	#banner {
-		height: 24em;
-	}
+/*# sourceMappingURL=style-wide.css.map */

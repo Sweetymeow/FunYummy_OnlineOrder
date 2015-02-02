@@ -388,6 +388,8 @@ function IsWeekend(givenDate) {
 // test of local storage from Home to Rush Order
 $("#rushorder").load(function(){
 	var ist = $.cookie('IST');
+	var rushListName[]; //
+	var rushListVal[]; // 
 	
 	// test of cookie
 	$('section#orderSum').append('<div><p> This is test of cookie: ' + ist + '</p></div>');
@@ -398,6 +400,15 @@ $("#rushorder").load(function(){
 	$('section#orderSum').append('<div><p> || This is test of localStorage: ' + localStorage.getItem("IST") + '</p></div>');
 })
 
+// Find name of button and hide all section
+$(function(){
+	var $buttonName = $("a.major").attr('id');
+	var n = $("a.major").length;
+	for(int i = 0; i< n ; i++ ){
+		
+	}
+}	
+)
 
 // Home Page Rush Orde Building Choice Btn
 $(function(){
@@ -451,6 +462,14 @@ $(function(){
 		localStorage.clear();
 		});
 })
+
+// Home Page - Save Rush order lists content to SessionStorage to next Rush Page
+function orderarray2Storage(){
+	for(var i = 0; i < orderArray.length; i++){
+		sessionStorage.setItem(orderArray[i].bldg, orderArray[i].number);
+	}
+	
+}
 
 // Home Page Rush Button - go to rush order page
 $(function(){

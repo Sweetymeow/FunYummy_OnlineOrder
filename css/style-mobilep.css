@@ -3,117 +3,55 @@
 	pixelarity.com @pixelarity
 	License: pixelarity.com/license
 */
-
 /* Lists */
-
-	ul.actions li {
-		display: block;
-		padding: 1.5em 0 0 0;
-	}
-
-		ul.actions li:first-child {
-			padding: 0;
-		}
+ul.actions li {
+  display: block;
+  padding: 1.5em 0 0 0; }
+  ul.actions li:first-child {
+    padding: 0; }
 
 /* Icon */
-
-	.icon.major {
-		width: 8em;
-		height: 8em;
-		line-height: 8em;
-		box-shadow: 0 0 0 7px white, 0 0 0 8px #e0e0e0;
-		margin: 0 30px 30px 30px;
-	}
-
-		.icon.major:before {
-			font-size: 24px;
-		}
+.icon.major {
+  width: 4em;
+  height: 4em;
+  line-height: 4em;
+  box-shadow: 0 0 0 7px white, 0 0 0 8px #e0e0e0; }
+  .icon.major:before {
+    font-size: 24px; }
 
 /* Button */
-
-	input[type="submit"],
-	input[type="reset"],
-	input[type="button"],
-	.button {
-		width: 100%;
-		display: block;
-	}
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+.button {
+  width: 100%;
+  display: block; }
 
 /* Box */
-
-	.box.highlight {
-		/*padding-left: calc(4em + 30px);*/
-		max-width: 50%;
-		display: inline;
-		min-height: 10em;
-		/* Safari、Opera 以及 Chrome 居中对齐 
-		display:-webkit-box;
-		-webkit-box-pack:center;
-		-webkit-box-align:center;*/
-	}
-
-	.box.post .inner {
-		/*margin-left: calc(30% + 20px);*/
-	}
-
-	.box.post .image {
-		width: 30%;
-	}
+.box.highlight {
+  padding-left: calc(4em + 30px); }
+.box.post .inner {
+  margin-left: calc(30% + 20px); }
+.box.post .image {
+  width: 30%; }
 
 /* Banner */
-
-	#banner {
-		height: 20em;
-	}
-
-		#banner header {
-			padding: 20px;
-		}
+#banner {
+  height: 20em; }
+  #banner header {
+    padding: 20px; }
 
 /* Wrapper */
-
-	.wrapper {
-		padding: 2em 20px 1px 20px;
-	}
+.wrapper {
+  padding: 2em 20px 1px 20px; }
 
 /* CTA */
-
-	#cta {
-		padding: 20px;
-	}
+#cta {
+  padding: 20px; }
 
 /* Footer */
+#footer {
+  padding: 2em 20px;
+  text-align: left; }
 
-	#footer {
-		padding: 2em 20px;
-		text-align: left;
-	}
-	
-/* Building Button*/
-#bldgBtnSec{
-	padding: 10px 0 0 40px;
-	display: flex;
-	}
-	
-
-a.bgnday{
-	width: 100%;
-}
-
-
-li.weekday{
-	min-height: 100px;
-}
-li.weekdayover{
-	min-height: 100px;
-}
-
-ul.special{
-	display:flex;
-	flex-direction: row;
-	flex-wrap:wrap;
-	}
-div.daybtn{
-	display:flex;
-	flex-direction: row;
-	}
+/*# sourceMappingURL=style-mobilep.css.map */
