@@ -17,7 +17,7 @@
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
         <script src="js/jquery.cookie.js"></script>
-        <script src="js/hyYummy_rush.js"></script>
+        <script src="js/hyYummy_index.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -37,11 +37,6 @@
 					<nav id="nav">
 						<ul>
 							<li class="current"><a href="index.html">Home</a></li>
-							<!--
-                            <li><a href="left-sidebar.html">Left Sidebar</a></li>
-							<li><a href="right-sidebar.html">Right Sidebar</a></li>
-							<li><a href="two-sidebar.html">Two Sidebar</a></li>
-                            -->
                             <li><a href="week-order.html">Week Order</a></li>
                             <li><a href="about-us.html">About Us</a></li>
 						</ul>
@@ -52,7 +47,7 @@
 		<!-- Banner -->
 			<section id="banner">
 				<header>
-					<h2>HyYummy: <em>More Faster Delivery! More Health Food!</em></h2>
+					<h2 id="indexAd">HyYummy: <em>More Faster Delivery! More Health Food!</em></h2>
 					<a href="#rush order" class="button">Order Tomorrow Rush! 次日限时抢购！</a>
 				</header>
 			</section>
@@ -67,31 +62,31 @@
 								<a href="#go_order" class="icon major fa-desktop" id="IST"></a>
                                 <h3 class="bldgButtonTitle">IST Bldg</h3>
                                 </div>                       
-                              <!--<div class="box highlight">
+                            <div class="box highlight">
 								<a href="#go_order" class="icon major fa-building-o" id="Pollock"></a>
                                 <h3 class="bldgButtonTitle">Pollock Bldg</h3>
-                             </div>-->
+                             </div>
 						</section>
 						<section class="4u 12u(2)" id="bldgBtnSec">
 							<div class="box highlight">
 								<a href="#go_order" class="icon major fa-building" id="Pollock"></a>
 								 <h3 class="bldgButtonTitle">Polleck Bldg</h3>
 							</div>
-                            <!-- <div class="box highlight">
+                            <div class="box highlight">
 								<a href="#go_order" class="icon major fa-institution" id="HUB"></a>
 								 <h3 class="bldgButtonTitle">HUB</h3>
-							</div>-->
+							</div>
 						</section>
 						<section class="4u 12u(2)" id="bldgBtnSec">
 							<div class="box highlight">
 								<a href="#go_order" class="icon major fa-pie-chart" id="Business"></a>
 								 <h3 class="bldgButtonTitle">Business Bldg</h3>
 							</div>
-                           <!--<div class="box highlight">
+                            <div class="box highlight">
 								<a href="#go_order" class="icon major fa-child" id="Patterson"></a>
 								 <h3 class="bldgButtonTitle">Patterson Bldg</h3>
 							</div>
-						</section>-->
+						</section>
                         <section class="4u 12u(2)" id="bldgBtnSec">
                         <a name="go_order"></a>
                         </section>
@@ -109,7 +104,7 @@
                     </div>
                     <div id="order_button" style="margin-top: 2em">
                     <a href="rush-order.html" class="button" id="rushBtn">Rush Order</a>
-                    <div id="order_cancel" style="margin-top: 0.5em"><a href="#" class="links">Cancel</a>
+                    <div style="margin-top: 0.5em"><a id="order_cancel" href="#" class="links">Cancel</a>
                     </div>
                     </div>
                     

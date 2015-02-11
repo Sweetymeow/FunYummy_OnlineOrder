@@ -177,7 +177,7 @@ $(function(){
 	}); 
 	*/
 
-	$("body").on( "click", "#mealplus", function() {	 // work as a delegate
+	$("body").on( "click", "#meaMixlus", function() {	 // work as a delegate
 		$(this).parent().find("span").css("font","red");
 		var cur_meal_text = $(this).parent().find("span").text();
 		var cur_meal_num = Number(cur_meal_text);
@@ -235,7 +235,7 @@ $(function(){
 	/*$("input").post( "ajax/test.html", function( data ) {
 		var obj = {};
 		obj['name']=$("input[name='name']"); //string
-		obj['cellphone']=$("input[name='cellphone']");
+		obj['celMixhone']=$("input[name='celMixhone']");
 		obj['email']=$("input[name='email']");
     	obj['age'] = 32;  // integer.
 		for(var i = 0; i <= orderIndex+1; i++){

@@ -3,9 +3,16 @@
 	pixelarity.com @pixelarity
 	License: pixelarity.com/license
 */
-/* Basic */
-body, input, select, textarea {
-  font-size: 12pt;
-  line-height: 1.5em; }
 
-/*# sourceMappingURL=style-narrow.css.map */
+/* Basic */
+
+	body, input, select, textarea {
+		font-size: 12pt;
+		line-height: 1.5em;
+	}
+	
+/* Building Button*/
+#bldgBtnSec{
+	padding: 10px 0 0 40px;
+	display: flex;
+	}

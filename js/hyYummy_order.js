@@ -29,6 +29,10 @@ $(function(){
 	var menutext = $('<p id="ordermenu"><em>Menu: </em> this part is menu. </p>');
 	// Menu content array
 	
+    // Add current class to week order - FOR HEADER
+	$("nav#nav > ul").children("li:nth-child(1)").removeClass("current");
+	$("nav#nav > ul").children("li:nth-child(2)").addClass("current");
+	
 	// Get next 5 work days and load to p#orderdate
 	$('.daydetail p:nth-child(1)').each(function(i){
 		var nextDvlDate = nextWorkDate(today);
@@ -210,13 +214,6 @@ $(function(){
 		orderLists.length = 0; 
 	});
 })
-
-$("#week_order").load(function(e) {
-    	// Add current class to week order - FOR HEADER
-	$("nav#nav > ul").children("li:nth-child(1)").removeClass("current");
-	$("nav#nav > ul").children("li:nth-child(2)").addClass("current");
-	
-});
 
 // 这个需要实现，计算order ID - 没写完
 function createOrderNum(givenDate, orderIndex){
